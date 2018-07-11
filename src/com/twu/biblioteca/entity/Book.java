@@ -1,17 +1,19 @@
 package com.twu.biblioteca.entity;
 
+import static com.twu.biblioteca.view.Hint.BOOK_FORMAT;
+
 public class Book {
     private long id;
     private String title;
     private String author;
-    private String publishTime;
+    private String publishYear;
     private boolean isInStock;
 
-    public Book(long id, String title, String author, String publishTime, boolean isInStock) {
+    public Book(long id, String title, String author, String publishYear, boolean isInStock) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.publishTime = publishTime;
+        this.publishYear = publishYear;
         this.isInStock = isInStock;
     }
 
@@ -39,12 +41,12 @@ public class Book {
         this.author = author;
     }
 
-    public String getPublishTime() {
-        return publishTime;
+    public String getPublishYear() {
+        return publishYear;
     }
 
-    public void setPublishTime(String publishTime) {
-        this.publishTime = publishTime;
+    public void setPublishYear(String publishYear) {
+        this.publishYear = publishYear;
     }
 
     public boolean isInStock() {
@@ -57,12 +59,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", publishTime='" + publishTime + '\'' +
-                ", isInStock=" + isInStock +
-                '}';
+        return String.format(BOOK_FORMAT,id,title,author,publishYear);
     }
 }
