@@ -24,4 +24,18 @@ public class BibliotecaView {
     public void showWrongChoiceHint() {
         System.out.print(WRONG_CHOICE_HINT +"\n");
     }
+
+    public void showCheckoutResult(boolean checkout) {
+        if(checkout)
+            System.out.print(CHECKOUT_BOOK_SUCCESSFUL+"\n");
+        else
+            System.out.print(CHECKOUT_BOOK_UNSUCCESSFUL+"\n");
+    }
+
+    public void showReturnResult(boolean returnBook) {
+        if(returnBook)
+            System.out.print(RETURN_BOOK_SUCCESSFUL+"\n");
+        else
+            System.out.print(RETURN_BOOK_UNSUCCESSFUL+"\n");
+    }
 }

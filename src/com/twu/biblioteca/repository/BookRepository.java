@@ -21,5 +21,24 @@ public class BookRepository {
         return bookList.stream().filter(book -> book.isInStock()).collect(Collectors.toList());
     }
 
+    public boolean checkout(long id){
+        for (Book book:getBookList()){
+            if(book.getId()==id){
+                book.setInStock(false);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean returnBook(long id){
+        for (Book book:bookList){
+            if(book.getId()==id&&!book.isInStock()){
+                book.setInStock(true);
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

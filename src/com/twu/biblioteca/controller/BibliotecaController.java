@@ -26,9 +26,11 @@ public class BibliotecaController {
                     bibliotecaView.showBookList(bookRepository.getBookList());
                     break;
                 case "2":
-
+                    bibliotecaView.showCheckoutResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
+                    break;
                 case "3":
-
+                    bibliotecaView.showReturnResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
+                    break;
                 case "4":
                     isContinue=false;
                     break;
