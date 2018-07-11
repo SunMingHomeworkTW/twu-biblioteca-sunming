@@ -35,31 +35,19 @@ public class BibliotecaViewTest {
     }
 
     @Test
-    public void should_view_print_book_list_that_is_in_stock() throws Exception {
+    public void should_view_print_book_list() throws Exception {
         List<Book> list = new ArrayList<>();
         list.add(new Book(1001,"Head First Java","Kathy Sierra, Bert Bates","2005",true));
         list.add(new Book(1002,"Thinking in Java","Bruce Eckel","2006",true));
         list.add(new Book(1003,"Refactoring: Improving the Design of Existing Code","Martin Fowler","1999",true));
         list.add(new Book(1004,"C++ Primer Plus","Stephen Prata","2011",true));
 
-        String expectedResult=list.stream().filter(book -> book.isInStock()).map(Book::toString).collect(Collectors.joining("\n"));
+        String expectedResult=list.stream().map(Book::toString).collect(Collectors.joining("\n"));
 
         bibliotecaView.showBookList(list);
         assertTrue(systemOut().contains(expectedResult));
     }
 
-    @Test
-    public void should_not_view_print_book_list_that_is_not_in_stock() throws Exception {
-        List<Book> list = new ArrayList<>();
-        list.add(new Book(1001,"Head First Java","Kathy Sierra, Bert Bates","2005",true));
-        list.add(new Book(1002,"Thinking in Java","Bruce Eckel","2006",true));
-        list.add(new Book(1003,"Refactoring: Improving the Design of Existing Code","Martin Fowler","1999",true));
-        list.add(new Book(1004,"C++ Primer Plus","Stephen Prata","2011",false));
-
-        String notExpectedResult="C++ Primer Plus";
-        bibliotecaView.showBookList(list);
-        assertFalse(systemOut().contains(notExpectedResult));
-    }
 
     @Test
     public void should_print_main_menu() throws Exception {

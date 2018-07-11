@@ -4,6 +4,7 @@ import com.twu.biblioteca.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookRepository {
     List<Book> bookList;
@@ -17,6 +18,8 @@ public class BookRepository {
     }
 
     public List<Book> getBookList() {
-        return bookList;
+        return bookList.stream().filter(book -> book.isInStock()).collect(Collectors.toList());
     }
+
+
 }
