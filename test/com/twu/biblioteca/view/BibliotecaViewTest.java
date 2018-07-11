@@ -66,4 +66,10 @@ public class BibliotecaViewTest {
         bibliotecaView.showMainMenu();
         assertTrue(systemOut().startsWith(MAINMENU_HINT));
     }
+
+    @Test
+    public void should_print_wrong_choice_hint() throws Exception {
+        bibliotecaView.showWrongChoiceHint();
+        assertTrue(systemOut().startsWith(WRONG_CHOICE_HINT));
+    }
 }

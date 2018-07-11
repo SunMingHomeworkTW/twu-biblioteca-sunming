@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff9cfc8c-e12a-42f3-83cc-b31b046d93ed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/view/BibliotecaView.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/view/BibliotecaView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,8 +55,8 @@
       <file leaf-file-name="BibliotecaViewTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+            <state relative-caret-position="364">
+              <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,8 +116,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/repository/BookRepository.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/controller/BibliotecaController.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/view/Hint.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/view/BibliotecaView.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java" />
       </list>
     </option>
   </component>
@@ -504,7 +503,7 @@
       <option name="presentableId" value="Default" />
       <updated>1531119258885</updated>
       <workItem from="1531119260101" duration="3154000" />
-      <workItem from="1531189788698" duration="14666000" />
+      <workItem from="1531189788698" duration="14739000" />
     </task>
     <servers />
   </component>
@@ -512,8 +511,8 @@
     <history-entry file="BibliotecaViewTest_should_not_view_print_book_list_that_is_not_in_stock - 2018.07.11 at 16h 32m 22s.xml">
       <configuration name="BibliotecaViewTest.should_not_view_print_book_list_that_is_not_in_stock" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaViewTest_should_view_print_book_list - 2018.07.11 at 16h 17m 59s.xml">
-      <configuration name="BibliotecaViewTest.should_view_print_book_list" configurationId="JUnit" />
+    <history-entry file="BibliotecaViewTest_should_print_main_menu - 2018.07.11 at 17h 16m 42s.xml">
+      <configuration name="BibliotecaViewTest.should_print_main_menu" configurationId="JUnit" />
     </history-entry>
     <history-entry file="BibliotecaViewTest_should_view_print_book_list - 2018.07.11 at 16h 19m 22s.xml">
       <configuration name="BibliotecaViewTest.should_view_print_book_list" configurationId="JUnit" />
@@ -541,7 +540,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17820000" />
+    <option name="totallyTimeSpent" value="17893000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -774,8 +773,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/view/BibliotecaViewTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+        <state relative-caret-position="364">
+          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
