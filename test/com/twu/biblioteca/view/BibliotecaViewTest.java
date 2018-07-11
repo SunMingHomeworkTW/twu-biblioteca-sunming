@@ -20,7 +20,6 @@ public class BibliotecaViewTest {
     }
 
     public String systemOut(){
-
         return outStream.toString();
     }
 
