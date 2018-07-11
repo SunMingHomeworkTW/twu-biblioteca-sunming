@@ -16,4 +16,8 @@ public class BibliotecaView {
         System.out.println(BOOKLIST_HEAD);
         bookList.stream().filter(book -> book.isInStock()).map(Book::toString).forEach(book->System.out.print(book+"\n"));
     }
+
+    public void showMainMenu() {
+        System.out.print(MAINMENU_HINT+"\n");
+    }
 }
