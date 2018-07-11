@@ -23,6 +23,7 @@ public class BibliotecaController {
                 case "1":
                     bibliotecaView.showBookList(bookRepository.getBookList());
                     break;
+                case "2":
             }
         }
     }

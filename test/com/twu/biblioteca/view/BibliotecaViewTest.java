@@ -42,7 +42,7 @@ public class BibliotecaViewTest {
         list.add(new Book(1003,"Refactoring: Improving the Design of Existing Code","Martin Fowler","1999",true));
         list.add(new Book(1004,"C++ Primer Plus","Stephen Prata","2011",true));
 
-        String expectedResult=list.stream().filter(book -> book.isInStock()).map(Book::toString).collect(Collectors.joining("\r\n"));
+        String expectedResult=list.stream().filter(book -> book.isInStock()).map(Book::toString).collect(Collectors.joining("\n"));
 
         bibliotecaView.showBookList(list);
         assertTrue(systemOut().contains(expectedResult));
@@ -59,5 +59,11 @@ public class BibliotecaViewTest {
         String notExpectedResult="C++ Primer Plus";
         bibliotecaView.showBookList(list);
         assertFalse(systemOut().contains(notExpectedResult));
+    }
+
+    @Test
+    public void should_print_main_menu() throws Exception {
+        bibliotecaView.showMainMenu();
+        assertTrue(systemOut().startsWith(MAINMENU_HINT));
     }
 }

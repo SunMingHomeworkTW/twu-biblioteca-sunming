@@ -9,11 +9,11 @@ import static com.twu.biblioteca.view.Hint.*;
 public class BibliotecaView {
 
     public void showWelcomeMessage() {
-        System.out.println(WECLOME_HINT);
+        System.out.print(WECLOME_HINT+"\n");
     }
 
     public void showBookList(List<Book> bookList) {
         System.out.println(BOOKLIST_HEAD);
-        bookList.stream().filter(book -> book.isInStock()).map(Book::toString).forEach(book->System.out.println(book));
+        bookList.stream().filter(book -> book.isInStock()).map(Book::toString).forEach(book->System.out.print(book+"\n"));
     }
 }
