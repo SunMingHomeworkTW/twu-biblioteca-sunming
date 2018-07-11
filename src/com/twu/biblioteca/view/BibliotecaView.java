@@ -20,4 +20,8 @@ public class BibliotecaView {
     public void showMainMenu() {
         System.out.print(MAINMENU_HINT+"\n");
     }
+
+    public void showWrongChoiceHint() {
+        System.out.print(WRONG_CHOICE_HINT +"\n");
+    }
 }
