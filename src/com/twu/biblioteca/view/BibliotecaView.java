@@ -18,11 +18,15 @@ public class BibliotecaView {
     }
 
     public void showMainMenu() {
-        System.out.print(MAINMENU_HINT+"\n");
+        System.out.print(MAINMENU_HINT);
     }
 
     public void showWrongChoiceHint() {
         System.out.print(WRONG_CHOICE_HINT +"\n");
+    }
+
+    public void showInputBookId(){
+        System.out.print(INPUT_BOOKID_HINT+"\n");
     }
 
     public void showCheckoutResult(boolean checkout) {

@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controller.BibliotecaController;
 import com.twu.biblioteca.controller.InputReader;
-import com.twu.biblioteca.repository.BookRepository;
 
 public class BibliotecaApp {
 

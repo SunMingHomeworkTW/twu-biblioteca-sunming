@@ -18,7 +18,6 @@ import static org.mockito.Mockito.*;
 public class BibliotecaControllerTest {
     private ByteArrayOutputStream outStream=new ByteArrayOutputStream();
     private InputReader inputReader;
-    private BookRepository bookRepository;
     private BibliotecaController bibliotecaController;
 
     @Before
@@ -68,6 +67,13 @@ public class BibliotecaControllerTest {
     }
 
     @Test
+    public void book_that_has_been_checkout_should_not_appear_in_the_list() throws Exception {
+        when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("1").thenReturn("4");
+        bibliotecaController.run();
+        assertFalse(systemOut().contains("Head First Java"));
+    }
+
+    @Test
     public void should_print_checkout_unsuccessful_hint_when_input_is_2_and_id_is_not_avaliable() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("10008").thenReturn("4");
         bibliotecaController.run();
@@ -86,6 +92,13 @@ public class BibliotecaControllerTest {
         when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("3").thenReturn("1001").thenReturn("4");
         bibliotecaController.run();
         assertTrue(systemOut().contains(RETURN_BOOK_SUCCESSFUL));
+    }
+
+    @Test
+    public void book_that_has_been_RETURNED_should_appear_in_the_list() throws Exception {
+        when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("3").thenReturn("1001").thenReturn("1").thenReturn("4");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains("Head First Java"));
     }
 
     @Test

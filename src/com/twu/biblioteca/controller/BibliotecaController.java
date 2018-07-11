@@ -24,18 +24,24 @@ public class BibliotecaController {
             switch (inputReader.read()){
                 case "1":
                     bibliotecaView.showBookList(bookRepository.getBookList());
+                    bibliotecaView.showMainMenu();
                     break;
                 case "2":
+                    bibliotecaView.showInputBookId();
                     bibliotecaView.showCheckoutResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showMainMenu();
                     break;
                 case "3":
+                    bibliotecaView.showInputBookId();
                     bibliotecaView.showReturnResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showMainMenu();
                     break;
                 case "4":
                     isContinue=false;
                     break;
                 default:
                     bibliotecaView.showWrongChoiceHint();
+                    bibliotecaView.showMainMenu();
                     break;
 
             }
