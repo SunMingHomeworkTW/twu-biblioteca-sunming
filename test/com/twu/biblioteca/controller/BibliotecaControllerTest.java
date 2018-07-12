@@ -2,6 +2,7 @@ package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Movie;
+import com.twu.biblioteca.entity.User;
 import com.twu.biblioteca.repository.BookRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -184,5 +185,29 @@ public class BibliotecaControllerTest {
         when(inputReader.read()).thenReturn("6").thenReturn("1001").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(RETURN_MOVIE_UNSUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_login_successfully_when_library_and_password_are_valid() throws Exception {
+        when(inputReader.read()).thenReturn("0").thenReturn("111-0001").thenReturn("123456").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(LOGIN_SUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_login_unsuccessfully_when_library_and_password_are_invalid() throws Exception {
+        when(inputReader.read()).thenReturn("0").thenReturn("111-0001").thenReturn("12345").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(LOGIN_UNSUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_user_information_when_library_and_password_are_valid() throws Exception {
+        User user=new User("111-0001","123456","Alice","123@qq.com","123456789");
+        String expectedResult=user.toString();
+
+        when(inputReader.read()).thenReturn("0").thenReturn("111-0001").thenReturn("123456").thenReturn("1").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(expectedResult));
     }
 }

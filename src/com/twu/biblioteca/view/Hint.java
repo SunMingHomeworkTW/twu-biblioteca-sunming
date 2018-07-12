@@ -24,4 +24,15 @@ public class Hint {
     public static final String CHECKOUT_MOVIE_UNSUCCESSFUL="That movie is not available.";
     public static final String RETURN_MOVIE_SUCCESSFUL="Thank you for returning the movie.";
     public static final String RETURN_MOVIE_UNSUCCESSFUL="That is not a valid movie to return.";
+
+    public static final String INPUT_LIBRARYNUMBER_HINT="Please input your library number:";
+    public static final String INPUT_PASSWORD_HINT="Please input your password:";
+    public static final String LOGIN_SUCCESSFUL="Login in successfully!\n"+SEPARATE+"1.See your user information\n" +
+            "2.Return to mainmenu\n"+SEPARATE;
+    public static final String LOGIN_UNSUCCESSFUL="Your library number and password are invalid.Please input again!\n";
+
+    public static final String PLEASE_LOGIN="You haven't login in.Please login in first!\n";
+
+    public static final String USER_FORMAT="%-8s%-16s%-16s%";
+    public static final String USER_HEAD =String.format(USER_FORMAT,"Name","Email address","Phone number");
 }
