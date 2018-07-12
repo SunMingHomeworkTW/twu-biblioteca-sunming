@@ -1,6 +1,7 @@
 package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.entity.Book;
+import com.twu.biblioteca.entity.Movie;
 
 import java.util.List;
 
@@ -41,5 +42,10 @@ public class BibliotecaView {
             System.out.print(RETURN_BOOK_SUCCESSFUL+"\n");
         else
             System.out.print(RETURN_BOOK_UNSUCCESSFUL+"\n");
+    }
+
+    public void showMovieList(List<Movie> movieListist) {
+        System.out.println(MOVIELIST_HEAD);
+        movieListist.stream().map(Movie::toString).forEach(movie->System.out.print(movie+"\n"));
     }
 }

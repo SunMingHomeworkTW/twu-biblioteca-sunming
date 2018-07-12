@@ -1,5 +1,7 @@
 package com.twu.biblioteca.entity;
 
+import static com.twu.biblioteca.view.Hint.MOVIE_FORMAT;
+
 public class Movie {
     private long id;
     private String name;
@@ -68,13 +70,6 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", director='" + director + '\'' +
-                ", year='" + year + '\'' +
-                ", rating=" + rating +
-                ", isInStock=" + isInStock +
-                '}';
+        return String.format(MOVIE_FORMAT,id,name,year,director,rating);
     }
 }
