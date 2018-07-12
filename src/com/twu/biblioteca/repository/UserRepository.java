@@ -17,4 +17,11 @@ public class UserRepository {
     }
 
 
+    public User isValid(String libraryNumber, String password) {
+        for(User user:userList){
+            if(user.getLibraryNumber().equals(libraryNumber)&&user.getPassword().equals(password))
+                return user;
+        }
+        return null;
+    }
 }

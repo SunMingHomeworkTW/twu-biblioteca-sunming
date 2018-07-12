@@ -2,6 +2,7 @@ package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.entity.Book;
 import com.twu.biblioteca.entity.Movie;
+import com.twu.biblioteca.entity.User;
 
 import java.util.List;
 
@@ -65,5 +66,29 @@ public class BibliotecaView {
             System.out.print(RETURN_MOVIE_SUCCESSFUL+"\n");
         else
             System.out.print(RETURN_MOVIE_UNSUCCESSFUL+"\n");
+    }
+
+    public void showInputLibraryNumber() {
+        System.out.print(INPUT_LIBRARYNUMBER_HINT+"\n");
+    }
+
+    public void showInputPassword() {
+        System.out.print(INPUT_PASSWORD_HINT+"\n");
+    }
+
+    public void showLoginSuccessfully(){
+        System.out.print(LOGIN_SUCCESSFUL);
+    }
+
+    public void showLoginUnsuccessfully(){
+        System.out.print(LOGIN_UNSUCCESSFUL);
+    }
+
+    public void showPleaseLogin() {
+        System.out.print(PLEASE_LOGIN);
+    }
+
+    public void showUserInformation(User user) {
+        System.out.print(USER_HEAD+"\n"+user.toString()+"\n");
     }
 }

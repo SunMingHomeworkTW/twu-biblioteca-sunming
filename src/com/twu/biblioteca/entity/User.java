@@ -1,5 +1,7 @@
 package com.twu.biblioteca.entity;
 
+import static com.twu.biblioteca.view.Hint.USER_FORMAT;
+
 public class User {
     private String libraryNumber;
     private String password;
@@ -57,12 +59,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "libraryNumber='" + libraryNumber + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return String.format(USER_FORMAT,name,emailAddress,phoneNumber);
     }
 }
