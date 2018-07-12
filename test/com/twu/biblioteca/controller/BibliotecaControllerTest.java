@@ -61,7 +61,7 @@ public class BibliotecaControllerTest {
     }
 
     @Test
-    public void should_print_checkout_successful_hint_when_input_is_2_and_id_is_avaliable() throws Exception {
+    public void should_print_checkout_book_successful_hint_when_input_is_2_and_id_is_avaliable() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(CHECKOUT_BOOK_SUCCESSFUL));
@@ -75,42 +75,42 @@ public class BibliotecaControllerTest {
     }
 
     @Test
-    public void should_print_checkout_unsuccessful_hint_when_input_is_2_and_id_is_not_avaliable() throws Exception {
+    public void should_print_checkout_book_unsuccessful_hint_when_input_is_2_and_id_is_not_avaliable() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("10008").thenReturn("4");
         bibliotecaController.run();
         assertTrue(systemOut().contains(CHECKOUT_BOOK_UNSUCCESSFUL));
     }
 
     @Test
-    public void should_print_checkout_unsuccessful_hint_when_input_is_2_and_id_is_has_been_checkout() throws Exception {
+    public void should_print_checkout_book_unsuccessful_hint_when_input_is_2_and_id_is_has_been_checkout() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("2").thenReturn("1001").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(CHECKOUT_BOOK_UNSUCCESSFUL));
     }
 
     @Test
-    public void should_print_return_successful_hint_when_input_is_3_and_id_is_avaliable() throws Exception {
+    public void should_print_return_book_successful_hint_when_input_is_3_and_id_is_avaliable() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("3").thenReturn("1001").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(RETURN_BOOK_SUCCESSFUL));
     }
 
     @Test
-    public void book_that_has_been_RETURNED_should_appear_in_the_list() throws Exception {
+    public void book_that_has_been_returned_should_appear_in_the_list() throws Exception {
         when(inputReader.read()).thenReturn("2").thenReturn("1001").thenReturn("3").thenReturn("1001").thenReturn("1").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains("Head First Java"));
     }
 
     @Test
-    public void should_print_return_unsuccessful_hint_when_input_is_3_and_id_is_not_avaliable() throws Exception {
+    public void should_print_return_book_unsuccessful_hint_when_input_is_3_and_id_is_not_avaliable() throws Exception {
         when(inputReader.read()).thenReturn("3").thenReturn("10008").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(RETURN_BOOK_UNSUCCESSFUL));
     }
 
     @Test
-    public void should_print_return_unsuccessful_hint_when_input_is_3_and_id_is_in_stock() throws Exception {
+    public void should_print_return_book_unsuccessful_hint_when_input_is_3_and_id_is_in_stock() throws Exception {
         when(inputReader.read()).thenReturn("3").thenReturn("1001").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(RETURN_BOOK_UNSUCCESSFUL));
@@ -128,5 +128,61 @@ public class BibliotecaControllerTest {
         when(inputReader.read()).thenReturn("4").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(expectedResult));
+    }
+
+    @Test
+    public void should_print_checkout_movie_successful_hint_when_input_is_5_and_id_is_avaliable() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("1001").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(CHECKOUT_MOVIE_SUCCESSFUL));
+    }
+
+    @Test
+    public void movie_that_has_been_checkout_should_not_appear_in_the_list() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("1001").thenReturn("4").thenReturn("7");
+        bibliotecaController.run();
+        assertFalse(systemOut().contains("Titanic"));
+    }
+
+    @Test
+    public void should_print_checkout_movie_unsuccessful_hint_when_input_is_5_and_id_is_not_avaliable() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("10008").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(CHECKOUT_MOVIE_UNSUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_checkout_movie_unsuccessful_hint_when_input_is_5_and_id_is_has_been_checkout() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("1001").thenReturn("5").thenReturn("1001").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(CHECKOUT_MOVIE_UNSUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_return_movie_successful_hint_when_input_is_6_and_id_is_avaliable() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("1001").thenReturn("6").thenReturn("1001").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(RETURN_MOVIE_SUCCESSFUL));
+    }
+
+    @Test
+    public void movie_that_has_been_returned_should_appear_in_the_list() throws Exception {
+        when(inputReader.read()).thenReturn("5").thenReturn("1001").thenReturn("6").thenReturn("1001").thenReturn("4").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains("Titanic"));
+    }
+
+    @Test
+    public void should_print_return_movie_unsuccessful_hint_when_input_is_6_and_id_is_not_avaliable() throws Exception {
+        when(inputReader.read()).thenReturn("6").thenReturn("10008").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(RETURN_MOVIE_UNSUCCESSFUL));
+    }
+
+    @Test
+    public void should_print_return_movie_unsuccessful_hint_when_input_is_6_and_id_is_in_stock() throws Exception {
+        when(inputReader.read()).thenReturn("6").thenReturn("1001").thenReturn("7");
+        bibliotecaController.run();
+        assertTrue(systemOut().contains(RETURN_MOVIE_UNSUCCESSFUL));
     }
 }
