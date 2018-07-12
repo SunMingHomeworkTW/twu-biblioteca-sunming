@@ -30,14 +30,14 @@ public class BibliotecaView {
         System.out.print(INPUT_BOOKID_HINT+"\n");
     }
 
-    public void showCheckoutResult(boolean checkout) {
+    public void showCheckoutBookResult(boolean checkout) {
         if(checkout)
             System.out.print(CHECKOUT_BOOK_SUCCESSFUL+"\n");
         else
             System.out.print(CHECKOUT_BOOK_UNSUCCESSFUL+"\n");
     }
 
-    public void showReturnResult(boolean returnBook) {
+    public void showReturnBookResult(boolean returnBook) {
         if(returnBook)
             System.out.print(RETURN_BOOK_SUCCESSFUL+"\n");
         else
@@ -47,5 +47,23 @@ public class BibliotecaView {
     public void showMovieList(List<Movie> movieListist) {
         System.out.println(MOVIELIST_HEAD);
         movieListist.stream().map(Movie::toString).forEach(movie->System.out.print(movie+"\n"));
+    }
+
+    public void showInputMovieId(){
+        System.out.print(INPUT_MOVIEID_HINT+"\n");
+    }
+
+    public void showCheckoutMovieResult(boolean checkout) {
+        if(checkout)
+            System.out.print(CHECKOUT_MOVIE_SUCCESSFUL+"\n");
+        else
+            System.out.print(CHECKOUT_MOVIE_UNSUCCESSFUL+"\n");
+    }
+
+    public void showReturnMovieResult(boolean returnMovie) {
+        if(returnMovie)
+            System.out.print(RETURN_MOVIE_SUCCESSFUL+"\n");
+        else
+            System.out.print(RETURN_MOVIE_UNSUCCESSFUL+"\n");
     }
 }

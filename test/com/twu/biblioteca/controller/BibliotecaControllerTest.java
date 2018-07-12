@@ -76,7 +76,7 @@ public class BibliotecaControllerTest {
 
     @Test
     public void should_print_checkout_book_unsuccessful_hint_when_input_is_2_and_id_is_not_avaliable() throws Exception {
-        when(inputReader.read()).thenReturn("2").thenReturn("10008").thenReturn("4");
+        when(inputReader.read()).thenReturn("2").thenReturn("10008").thenReturn("7");
         bibliotecaController.run();
         assertTrue(systemOut().contains(CHECKOUT_BOOK_UNSUCCESSFUL));
     }

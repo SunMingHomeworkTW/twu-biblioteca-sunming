@@ -21,5 +21,23 @@ public class MovieRepository {
         return movieList.stream().filter(movie -> movie.isInStock()).collect(Collectors.toList());
     }
 
+    public boolean checkout(long id){
+        for (Movie movie:getMovieList()){
+            if(movie.getId()==id){
+                movie.setInStock(false);
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public boolean returnMovie(long id){
+        for (Movie movie:movieList){
+            if(movie.getId()==id&&!movie.isInStock()){
+                movie.setInStock(true);
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -19,7 +19,7 @@ public class Hint {
     public static final String MOVIE_FORMAT="%-8d%-64s%-16s%-32s-8s";
     public static final String MOVIELIST_HEAD =String.format("%-8s%-64s%-16s%-32s-8s","Id","Name","Year","Director","Rating");
 
-    public static final String MOVIE_BOOKID_HINT="Please input the movie id:";
+    public static final String INPUT_MOVIEID_HINT="Please input the movie id:";
     public static final String CHECKOUT_MOVIE_SUCCESSFUL="Thank you! Enjoy the movie.";
     public static final String CHECKOUT_MOVIE_UNSUCCESSFUL="That movie is not available.";
     public static final String RETURN_MOVIE_SUCCESSFUL="Thank you for returning the movie.";

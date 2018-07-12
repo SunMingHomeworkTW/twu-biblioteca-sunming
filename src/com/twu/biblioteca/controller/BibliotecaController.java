@@ -1,19 +1,20 @@
 package com.twu.biblioteca.controller;
 
 import com.twu.biblioteca.repository.BookRepository;
+import com.twu.biblioteca.repository.MovieRepository;
 import com.twu.biblioteca.view.BibliotecaView;
-
-import java.util.Scanner;
 
 public class BibliotecaController {
     private InputReader inputReader;
     private BibliotecaView bibliotecaView;
     private BookRepository bookRepository;
+    private MovieRepository movieRepository;
 
     public BibliotecaController(InputReader inputReader) {
         this.inputReader=inputReader;
         bibliotecaView=new BibliotecaView();
         bookRepository=new BookRepository();
+        movieRepository=new MovieRepository();
     }
 
     public void run(){
@@ -28,15 +29,29 @@ public class BibliotecaController {
                     break;
                 case "2":
                     bibliotecaView.showInputBookId();
-                    bibliotecaView.showCheckoutResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showCheckoutBookResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
                     bibliotecaView.showMainMenu();
                     break;
                 case "3":
                     bibliotecaView.showInputBookId();
-                    bibliotecaView.showReturnResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showReturnBookResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
                     bibliotecaView.showMainMenu();
                     break;
                 case "4":
+                    bibliotecaView.showMovieList(movieRepository.getMovieList());
+                    bibliotecaView.showMainMenu();
+                    break;
+                case "5":
+                    bibliotecaView.showInputMovieId();
+                    bibliotecaView.showCheckoutMovieResult(movieRepository.checkout(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showMainMenu();
+                    break;
+                case "6":
+                    bibliotecaView.showInputMovieId();
+                    bibliotecaView.showReturnMovieResult(movieRepository.returnMovie(Long.parseLong(inputReader.read())));
+                    bibliotecaView.showMainMenu();
+                    break;
+                case "7":
                     isContinue=false;
                     break;
                 default:
