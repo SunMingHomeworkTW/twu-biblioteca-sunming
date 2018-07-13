@@ -22,75 +22,48 @@ public class BibliotecaController {
     }
 
     public void run() {
-        bibliotecaView.showWelcomeMessage();
-        bibliotecaView.showMainMenu();
+        showWelcome();
         boolean isContinue = true;
         boolean isLogin = false;
         while (isContinue) {
             switch (inputReader.read()) {
                 case "0":
-                    isLogin = validateLogin(inputReader);
+                    isLogin = validateLogin();
                     break;
                 case "1":
-                    bibliotecaView.showBookList(bookRepository.getBookList());
-                    bibliotecaView.showMainMenu();
+                    showBookList();
                     break;
                 case "2":
-                    if (isLogin) {
-                        bibliotecaView.showInputBookId();
-                        bibliotecaView.showCheckoutBookResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
-                        bibliotecaView.showMainMenu();
-                    } else {
-                        bibliotecaView.showPleaseLogin();
-                        bibliotecaView.showMainMenu();
-                    }
+                    checkoutBook(isLogin);
                     break;
                 case "3":
-                    if (isLogin) {
-                        bibliotecaView.showInputBookId();
-                        bibliotecaView.showReturnBookResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
-                        bibliotecaView.showMainMenu();
-                    } else {
-                        bibliotecaView.showPleaseLogin();
-                        bibliotecaView.showMainMenu();
-                    }
+                    returnBook(isLogin);
                     break;
                 case "4":
-                    bibliotecaView.showMovieList(movieRepository.getMovieList());
-                    bibliotecaView.showMainMenu();
+                    showMovieList();
                     break;
                 case "5":
-                    if (isLogin) {
-                        bibliotecaView.showInputMovieId();
-                        bibliotecaView.showCheckoutMovieResult(movieRepository.checkout(Long.parseLong(inputReader.read())));
-                        bibliotecaView.showMainMenu();
-                    } else {
-                        bibliotecaView.showPleaseLogin();
-                        bibliotecaView.showMainMenu();
-                    }
+                    checkoutMovie(isLogin);
                     break;
                 case "6":
-                    if (isLogin) {
-                        bibliotecaView.showInputMovieId();
-                        bibliotecaView.showReturnMovieResult(movieRepository.returnMovie(Long.parseLong(inputReader.read())));
-                        bibliotecaView.showMainMenu();
-                    } else {
-                        bibliotecaView.showPleaseLogin();
-                        bibliotecaView.showMainMenu();
-                    }
+                    returnMovie(isLogin);
                     break;
                 case "7":
                     isContinue = false;
                     break;
                 default:
-                    bibliotecaView.showWrongChoiceHint();
-                    bibliotecaView.showMainMenu();
+                    wrongChoice();
                     break;
             }
         }
     }
 
-    private boolean validateLogin(InputReader inputReader) {
+    private void showWelcome() {
+        bibliotecaView.showWelcomeMessage();
+        bibliotecaView.showMainMenu();
+    }
+
+    private boolean validateLogin() {
         bibliotecaView.showInputLibraryNumber();
         String libraryNumber = inputReader.read();
         bibliotecaView.showInputPassword();
@@ -106,12 +79,69 @@ public class BibliotecaController {
         } else {
             bibliotecaView.showLoginUnsuccessfully();
             if(inputReader.read().equals("Y"))
-                validateLogin(inputReader);
+                validateLogin();
             else
                 bibliotecaView.showMainMenu();
             return false;
         }
     }
 
+    private void showBookList() {
+        bibliotecaView.showBookList(bookRepository.getBookList());
+        bibliotecaView.showMainMenu();
+    }
 
+    private void checkoutBook(boolean isLogin) {
+        if (isLogin) {
+            bibliotecaView.showInputBookId();
+            bibliotecaView.showCheckoutBookResult(bookRepository.checkout(Long.parseLong(inputReader.read())));
+            bibliotecaView.showMainMenu();
+        } else {
+            bibliotecaView.showPleaseLogin();
+            bibliotecaView.showMainMenu();
+        }
+    }
+
+    private void returnBook(boolean isLogin) {
+        if (isLogin) {
+            bibliotecaView.showInputBookId();
+            bibliotecaView.showReturnBookResult(bookRepository.returnBook(Long.parseLong(inputReader.read())));
+            bibliotecaView.showMainMenu();
+        } else {
+            bibliotecaView.showPleaseLogin();
+            bibliotecaView.showMainMenu();
+        }
+    }
+
+    private void showMovieList() {
+        bibliotecaView.showMovieList(movieRepository.getMovieList());
+        bibliotecaView.showMainMenu();
+    }
+
+    private void checkoutMovie(boolean isLogin) {
+        if (isLogin) {
+            bibliotecaView.showInputMovieId();
+            bibliotecaView.showCheckoutMovieResult(movieRepository.checkout(Long.parseLong(inputReader.read())));
+            bibliotecaView.showMainMenu();
+        } else {
+            bibliotecaView.showPleaseLogin();
+            bibliotecaView.showMainMenu();
+        }
+    }
+
+    private void returnMovie(boolean isLogin) {
+        if (isLogin) {
+            bibliotecaView.showInputMovieId();
+            bibliotecaView.showReturnMovieResult(movieRepository.returnMovie(Long.parseLong(inputReader.read())));
+            bibliotecaView.showMainMenu();
+        } else {
+            bibliotecaView.showPleaseLogin();
+            bibliotecaView.showMainMenu();
+        }
+    }
+
+    private void wrongChoice() {
+        bibliotecaView.showWrongChoiceHint();
+        bibliotecaView.showMainMenu();
+    }
 }
